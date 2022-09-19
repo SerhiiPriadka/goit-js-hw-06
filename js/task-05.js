@@ -1,11 +1,9 @@
-const refs = {
-    input: document.querySelector('#name-input'),
-    nameLabel: document.querySelector('#name-output')
-    }
 
-refs.input.addEventListener ('input', changeName);
+const input = document.querySelector('#name-input');
+const nameLabel = document.querySelector('#name-output');
 
-function changeName (event){
-console.log (event.currentTarget.value);
-refs.nameLabel.textContent = event.currentTarget.value.trim();
+const changeName = event => {
+    nameLabel.textContent = event.currentTarget.value;
+    event.currentTarget.value.trim() === `` ? nameLabel.textContent = "Anonymous" : null;
 }
+input.addEventListener ('input', changeName);
